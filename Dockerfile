@@ -3,8 +3,12 @@ FROM python:3.11-slim
 WORKDIR /app
 
 RUN pip install --no-cache-dir \
-    torch --index-url https://download.pytorch.org/whl/cu128 \
-    unsloth \
+    torch \
+    --extra-index-url https://download.pytorch.org/whl/cu124
+
+RUN pip install --no-cache-dir unsloth
+
+RUN pip install --no-cache-dir \
     transformers \
     accelerate \
     peft \
